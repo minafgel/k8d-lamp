@@ -15,6 +15,7 @@ spec:
       containers:
         - name: php-apache
           image: php:8.2-apache
+          args: ["/bin/bash", "-c", "docker-php-ext-install mysqli && apache2-foreground"]
           ports:
             - containerPort: 80
           envFrom:

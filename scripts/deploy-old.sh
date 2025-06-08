@@ -1,8 +1,8 @@
 #!/bin/bash
 
-kubectl apply -f mysql-pv.yaml
-kubectl apply -f mysql-pvc.yaml
-kubectl apply -f mysql-init-configmap.yaml
-kubectl apply -f mysql-deployment.yaml
-kubectl apply -f php-deployment.yaml
-kubectl apply -f phpmyadmin-deployment.yaml
+kubectl apply -f ../k8s/mysql-pv.yaml
+kubectl apply -f ../k8s/mysql-pvc.yaml
+kubectl apply -f ../k8s/mysql-init-configmap.yaml
+kubectl apply -f ../k8s/mysql-deployment.yaml
+kubectl apply -f ../k8s/php-deployment.yaml
+kubectl apply -f ../k8s/phpmyadmin-deployment.yaml
