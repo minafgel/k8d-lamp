@@ -15,19 +15,13 @@ spec:
       containers:
         - name: mysql
           image: mysql:8.0
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: rootpassword
-            - name: MYSQL_DATABASE
-              value: myapp
-            - name: MYSQL_USER
-              value: user
-            - name: MYSQL_PASSWORD
-              value: userpass
+          envFrom:
+            - secretRef:
+                name: mysql-secrets
           ports:
             - containerPort: 3306
           volumeMounts:
-            - name: mysql-persistent-storage
+            - name: mysql-data
               mountPath: /var/lib/mysql
             - name: init-script
               mountPath: /docker-entrypoint-initdb.d
@@ -39,7 +33,7 @@ spec:
               memory: "512Mi"
               cpu: "1000m"
       volumes:
-        - name: mysql-persistent-storage
+        - name: mysql-data
           persistentVolumeClaim:
             claimName: mysql-pvc
         - name: init-script

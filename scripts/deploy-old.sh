@@ -1,3 +1,5 @@
+#!/bin/bash
+
 kubectl apply -f mysql-pv.yaml
 kubectl apply -f mysql-pvc.yaml
 kubectl apply -f mysql-init-configmap.yaml
