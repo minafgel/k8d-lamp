@@ -20,6 +20,13 @@ spec:
           volumeMounts:
             - name: php-code
               mountPath: /var/www/html
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "512Mi"
+              cpu: "1000m"
       volumes:
         - name: php-code
           configMap:
